@@ -1,5 +1,5 @@
 <template>
-  <span class="item" :class="{done: item.status}" @click="item.status = !item.status">
+  <span class="item" :class="{done: item.status}" @click="doneItem">
     <button class="close" @click.stop="deleteItem">x</button>
     <div class="action">{{ item.action }}</div>
   </span>
@@ -13,6 +13,9 @@
       item: Object
     },
     methods: {
+      doneItem(){
+        Bus.toggleItem(this.item)
+      },
       deleteItem() {
         Bus.detachItem(this.item)
       }

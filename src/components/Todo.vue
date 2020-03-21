@@ -6,7 +6,7 @@
       </div>
     </div>
 
-    <TodoAdd></TodoAdd>
+    <TodoAdd />
 
     <TodoList :items="items"/>
   </div>
@@ -41,6 +41,11 @@
     },
     watch: {
       items() {
+        this.updateLocalStorage();
+      }
+    },
+    methods: {
+      updateLocalStorage() {
         const tasks = JSON.stringify(this.items);
         localStorage.setItem("TodoListItems", tasks);
       }
@@ -50,13 +55,23 @@
         const fn = i => { return i.action.toLowerCase() === a.trim().toLowerCase() };
 
         if (!this.items.filter(fn).length) {
-          this.items.push({action: a.trim(), status: 0});
+          this.items.push({action: a.trim(), status: false});
         }
-      })
+      });
 
       Bus.onDetachItem(i => {
         const filteredItems = this.items.filter((item) => {return item != i});
         this.items = filteredItems;
+      });
+
+      Bus.onToggleItem(i => {
+        this.items.map(item => {
+          if (item.action === i.action) {
+            item.status = !item.status;
+          }
+        });
+
+        this.updateLocalStorage();
       });
     },
     mounted() {
