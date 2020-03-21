@@ -32,12 +32,13 @@
     border: solid 1px #F004;
     border-left: solid 5px #F006;
     border-radius: 5px;
+    user-select: none;
   }
 
   .item .close {
     cursor: pointer;
     background: inherit;
-    font-size: 0.7;
+    font-size: 0.7em;
     border: inherit;
     border-radius: 5px 5px 5px 50px;
     float: right;

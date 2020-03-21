@@ -40,14 +40,12 @@
       }
     },
     watch: {
-      items() {
-        this.updateLocalStorage();
-      }
-    },
-    methods: {
-      updateLocalStorage() {
-        const tasks = JSON.stringify(this.items);
-        localStorage.setItem("TodoListItems", tasks);
+      items: {
+        deep: true,
+        handler() {
+          const tasks = JSON.stringify(this.items);
+          localStorage.setItem("TodoListItems", tasks);
+        }
       }
     },
     created() {
@@ -70,8 +68,6 @@
             item.status = !item.status;
           }
         });
-
-        this.updateLocalStorage();
       });
     },
     mounted() {
