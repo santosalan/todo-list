@@ -1,7 +1,12 @@
 <template>
-  <span class="item" :class="{done: item.status}" @click="doneItem">
+  <span class="item" :class="{done: item.done, archived: item.archived}" @click="doneItem">
     <button class="close" @click.stop="deleteItem">x</button>
+
     <div class="action">{{ item.action }}</div>
+
+    <button class="archive" @click.stop="archiveItem">
+      {{ item.archived ? 'unarchive' : 'archive' }}
+    </button>
   </span>
 </template>
 
@@ -13,8 +18,11 @@
       item: Object
     },
     methods: {
-      doneItem(){
-        Bus.toggleItem(this.item)
+      doneItem() {
+        !this.item.archived && Bus.doneItem(this.item);
+      },
+      archiveItem() {
+        Bus.archiveItem(this.item)
       },
       deleteItem() {
         Bus.detachItem(this.item)
@@ -46,9 +54,20 @@
     color: #FFF;
   }
 
+  .item .archive {
+    cursor: pointer;
+    background: inherit;
+    font-size: 0.7rem;
+    border: inherit;
+    border-radius: 50px 5px 5px 5px;
+    float: right;
+    padding: 0px 10px;
+    color: #FFF;
+  }
+
   .action {
-    margin: 15px 0 0 0;
-    padding: 5px 20px 20px;
+    margin: 15px 0 5px;
+    padding: 5px 20px 5px;
   }
 
   .done {
@@ -56,6 +75,15 @@
     border: solid 1px #0FF4;
     border-left: solid 5px #0FF6;
     text-decoration: line-through;
+  }
+
+  .archived {
+    /*background: #9998;*/
+    opacity: 0.3;
+  }
+
+  .archived:hover {
+    opacity: 0.8;
   }
 
   .item.done .close {

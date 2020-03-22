@@ -29,9 +29,8 @@
     },
     computed: {
       percent() {
-        const pcnt = Math.round((this.items.filter(i => {
-                                    return i.status;
-                                }).length * 100 / this.items.length));
+        const base = this.items.filter(i => { return !i.archived });
+        const pcnt = Math.round((base.filter(i => { return i.done }).length * 100 / base.length));
 
         let el = document.querySelector('body');
         el.style.background = 'linear-gradient(to right, rgb(00, 50, 00)' + (-100 + pcnt*2) + '%, rgb(58, 0, 0))';
@@ -53,7 +52,11 @@
         const fn = i => { return i.action.toLowerCase() === a.trim().toLowerCase() };
 
         if (!this.items.filter(fn).length) {
-          this.items.push({action: a.trim(), status: false});
+          this.items.push({
+                      action: a.trim(),
+                      done: false,
+                      archived: false,
+                    });
         }
       });
 
@@ -62,13 +65,21 @@
         this.items = filteredItems;
       });
 
-      Bus.onToggleItem(i => {
+      Bus.onDoneItem(i => {
         this.items.map(item => {
           if (item.action === i.action) {
-            item.status = !item.status;
+            item.done = !item.done;
           }
         });
       });
+
+      Bus.onArchiveItem(i => {
+        this.items.map(item => {
+          if (item.action === i.action) {
+            item.archived = !item.archived;
+          }
+        });
+      })
     },
     mounted() {
       let tasks = JSON.parse(localStorage.getItem("TodoListItems"));

@@ -8,12 +8,21 @@ export default new Vue({
     onAttachItem(fn) {
       this.$on('ATTACH_ITEM', fn);
     },
-    toggleItem(item) {
-      this.$emit('TOGGLE_ITEM', item);
+
+    doneItem(item) {
+      this.$emit('DONE_ITEM', item);
     },
-    onToggleItem(fn) {
-      this.$on('TOGGLE_ITEM', fn);
+    onDoneItem(fn) {
+      this.$on('DONE_ITEM', fn);
     },
+
+    archiveItem(item) {
+      this.$emit('ARCHIVE_ITEM', item);
+    },
+    onArchiveItem(fn) {
+      this.$on('ARCHIVE_ITEM', fn);
+    },
+
     detachItem(item) {
       this.$emit('DETACH_ITEM', item);
     },
