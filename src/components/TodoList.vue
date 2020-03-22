@@ -17,7 +17,7 @@
 
     <Modal title="Clear Archive" :fnClose="closeModalClear" v-if="modalClearShow">
       <div slot="body">
-        Abc
+        Select below which tasks will be destroyed...
       </div>
       <div slot="actions">
         <button class="btn" @click="clearArchived('all')">All</button>

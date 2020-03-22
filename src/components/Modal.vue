@@ -10,15 +10,13 @@
         <slot name="body"></slot>
       </div>
 
-      <div class="footer">
-        <slot name="footer">
+      <div class="footer" v-if="this.$slots.footer">
+        <slot name="footer"></slot>
+      </div>
 
+      <div class="actions" v-if="this.$slots.actions">
+        <slot name="actions">
         </slot>
-
-        <div class="actions">
-          <slot name="actions">
-          </slot>
-        </div>
       </div>
     </div>
   </div>
@@ -95,11 +93,13 @@
   }
 
   .footer {
-
+    padding: 20px;
   }
 
   .actions {
+    padding: 20px 20px 0 20px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>

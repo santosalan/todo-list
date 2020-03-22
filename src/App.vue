@@ -29,6 +29,7 @@ export default {
     margin-right: 10px;
     cursor: pointer;
     user-select: none;
+    text-decoration: none;
   }
 
   #app {
