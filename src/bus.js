@@ -23,6 +23,13 @@ export default new Vue({
       this.$on('ARCHIVE_ITEM', fn);
     },
 
+    clearArchived(filter) {
+      this.$emit('CLEAR_ARCHIVED', filter);
+    },
+    onClearArchived(fn) {
+      this.$on('CLEAR_ARCHIVED', fn);
+    },
+
     detachItem(item) {
       this.$emit('DETACH_ITEM', item);
     },

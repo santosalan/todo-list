@@ -79,7 +79,18 @@
             item.archived = !item.archived;
           }
         });
-      })
+      });
+
+      Bus.onClearArchived(filter => {
+        console.log(filter);
+        const filteredItems = this.items.filter(i => {
+                                return filter === 'all'
+                                              ? !i.archived
+                                              : !i.archived || i.done === !(filter === 'done')
+                              });
+
+        this.items = filteredItems;
+      });
     },
     mounted() {
       let tasks = JSON.parse(localStorage.getItem("TodoListItems"));

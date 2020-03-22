@@ -79,7 +79,7 @@
 
   .archived {
     /*background: #9998;*/
-    opacity: 0.3;
+    opacity: 0.5;
   }
 
   .archived:hover {
