@@ -34,22 +34,26 @@
 
   .addItem input[type=text] {
     width: 100%;
-    border: solid 1px #FF36;
+    border: solid 1px #FFF9;
     border-left-width: 5px;
     border-radius: 5px 0 0 5px;
-    background: #FF33;
+    background: #3699;
     color: #FFF;
     font-size: 1.3em;
     padding: 5px;
   }
 
-  .addItem button {
+  button {
     width: 10%;
-    background: #FF36;
-    border: solid 1px #FF36;
+    background: #369D;
+    border: solid 1px #FFF9;
     border-right-width: 5px;
     border-radius: 0 5px 5px 0;
     font-size: 2em;
     color: #FFF;
+  }
+
+  button:hover {
+    background: #07FC;
   }
 </style>

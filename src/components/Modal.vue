@@ -57,7 +57,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: #0008;
+    background: #0009;
   }
 
   .modal {
@@ -68,7 +68,7 @@
     border-radius: 20px;
     min-width: 300px;
     max-width: 90%;
-    background: #07F6;
+    background: #369D;
   }
 
   .btn {

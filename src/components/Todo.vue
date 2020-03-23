@@ -109,11 +109,13 @@
   .progress {
     display: block;
     height: 50px;
-    border: solid 1px #FFF;
+    border: solid 1px #FFFA;
+    border-left-width: 5px;
+    border-right-width: 5px;
     text-align: center;
     width: 100%;
     border-radius: 50px;
-    background: #FFF1;
+    background: #FFF2;
   }
 
   .progress .value {
