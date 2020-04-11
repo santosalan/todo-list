@@ -1,18 +1,23 @@
 <template>
   <div class="list">
     <div class="area">
-      <TodoItem v-for="item in tasks" :key="item.action" :item="item"/>
+      <transition-group name="fade-rotate" mode="out-in">
+        <TodoItem v-for="item in tasks" :key="item.action" :item="item"/>
+        <div class="no-tasks" key="notasks" v-if="!tasks.length">
+          No tasks to do.
+        </div>
+      </transition-group>
     </div>
-    <div class="no-tasks" v-if="!tasks.length">
-      No tasks to do.
-    </div>
+
     <hr />
     <h3>
       Archive
       <button class="btn clear" @click="clear">Clear archive</button>
     </h3>
     <div class="area">
-      <TodoItem v-for="item in archiveds" :key="item.action" :item="item"/>
+      <transition-group name="fade-rotate" mode="out-in">
+        <TodoItem v-for="item in archiveds" :key="item.action" :item="item"/>
+      </transition-group>
     </div>
 
     <Modal title="Clear Archive" :fnClose="closeModalClear" v-if="modalClearShow">
@@ -99,5 +104,34 @@
 
   .clear:hover {
     background: #F006;
+  }
+
+  @keyframes rotate-in {
+    from { transform: rotateY(90deg); }
+    to { transform: rotateY(0deg); }
+  }
+
+  @keyframes rotate-out {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(90deg); }
+  }
+
+  .fade-rotate-enter, .fade-rotate-leave-to {
+    opacity: 0;
+  }
+
+  .fade-rotate-enter-active {
+    animation: rotate-in .5s ease;
+    transition: opacity .5s;
+  }
+
+  .fade-rotate-leave-active {
+    position: absolute;
+    animation: rotate-out .5s ease;
+    transition: opacity .5s;
+  }
+
+  .fade-rotate-move {
+    transition: transform .7s;
   }
 </style>

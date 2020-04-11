@@ -132,5 +132,4 @@
     background: green;
     border-radius: 50px;
   }
-
 </style>

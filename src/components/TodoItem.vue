@@ -1,5 +1,5 @@
 <template>
-  <span class="item" :class="{done: item.done, archived: item.archived}" @click="doneItem">
+  <div class="item" :class="{done: item.done, archived: item.archived}" @click="doneItem">
     <button class="close" @click.stop="deleteItem">x</button>
 
     <div class="action">{{ item.action }}</div>
@@ -7,7 +7,7 @@
     <button class="archive" @click.stop="archiveItem">
       {{ item.archived ? 'unarchive' : 'archive' }}
     </button>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -33,6 +33,7 @@
 
 <style scoped>
   .item {
+    display: inline-block;
     cursor: pointer;
     background: #F003;
     margin: 20px;
@@ -89,5 +90,4 @@
   .item.done .close {
     text-decoration: none;
   }
-
 </style>
