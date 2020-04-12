@@ -2,7 +2,7 @@
   <div class="list">
     <div class="area">
       <transition-group name="fade-rotate" mode="out-in">
-        <TodoItem v-for="item in tasks" :key="item.action" :item="item"/>
+        <TodoItem v-for="item in tasks" :key="item.action" :item="item" :fnDelete="showDeleteModal"/>
         <div class="no-tasks" key="notasks" v-if="!tasks.length">
           No tasks to do.
         </div>
@@ -16,10 +16,25 @@
     </h3>
     <div class="area">
       <transition-group name="fade-rotate" mode="out-in">
-        <TodoItem v-for="item in archiveds" :key="item.action" :item="item"/>
+        <TodoItem v-for="item in archiveds" :key="item.action" :item="item" :fnDelete="showDeleteModal"/>
       </transition-group>
     </div>
 
+    <!-- Delete task -->
+    <Modal title="Delete Task" :fnClose="closeModalDelete" v-if="modalDeleteShow">
+      <div slot="body">
+        Do you want delete the {{ selectedTask.archived ? 'archived' : '' }} task?<br>
+        <div class="item" :class="{done: selectedTask.done}">
+          <div class="action">{{ selectedTask.action }}</div>
+        </div>
+      </div>
+      <div slot="actions">
+        <button class="btn" @click="deleteTask()">Yes</button>
+        <button class="btn" @click="closeModalDelete()">Cancel</button>
+      </div>
+    </Modal>
+
+    <!-- Clear Archive -->
     <Modal title="Clear Archive" :fnClose="closeModalClear" v-if="modalClearShow">
       <div slot="body">
         Select below which tasks will be destroyed...
@@ -48,6 +63,8 @@
     },
     data() {
       return {
+        selectedTask: null,
+        modalDeleteShow: false,
         modalClearShow: false,
       }
     },
@@ -60,6 +77,19 @@
       }
     },
     methods: {
+      showDeleteModal(task) {
+        this.modalDeleteShow = true;
+        this.selectedTask = task;
+      },
+      deleteTask() {
+        Bus.detachItem(this.selectedTask);
+        this.selectedTask = null;
+        this.closeModalDelete();
+      },
+      closeModalDelete() {
+        this.modalDeleteShow = false;
+      },
+
       clear() {
         this.modalClearShow = true;
       },
@@ -68,7 +98,6 @@
 
         this.closeModalClear();
       },
-
       closeModalClear() {
         this.modalClearShow = false;
       }
@@ -121,13 +150,13 @@
   }
 
   .fade-rotate-enter-active {
-    animation: rotate-in .5s ease;
+    animation: rotate-in .5s ease-in;
     transition: opacity .5s;
   }
 
   .fade-rotate-leave-active {
     position: absolute;
-    animation: rotate-out .5s ease;
+    animation: rotate-out .5s ease-in;
     transition: opacity .5s;
   }
 

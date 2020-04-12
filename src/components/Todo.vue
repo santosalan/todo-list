@@ -82,7 +82,6 @@
       });
 
       Bus.onClearArchived(filter => {
-        console.log(filter);
         const filteredItems = this.items.filter(i => {
                                 return filter === 'all'
                                               ? !i.archived

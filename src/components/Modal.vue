@@ -54,7 +54,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: #0009;
@@ -81,7 +81,7 @@
   .close {
     position: absolute;
     top: 0px;
-    right: -10px;
+    right: -11px;
     border-radius: 0px 20px;
   }
 

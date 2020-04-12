@@ -15,7 +15,11 @@
 
   export default {
     props: {
-      item: Object
+      item: Object,
+      fnDelete: {
+        type: Function,
+        required: true,
+      },
     },
     methods: {
       doneItem() {
@@ -25,15 +29,15 @@
         Bus.archiveItem(this.item)
       },
       deleteItem() {
-        Bus.detachItem(this.item)
+        this.fnDelete(this.item);
       }
     }
   }
 </script>
 
-<style scoped>
+<style>
   .item {
-    display: inline-block;
+    display: inline-table;
     cursor: pointer;
     background: #F003;
     margin: 20px;
@@ -42,6 +46,7 @@
     border-left: solid 5px #F006;
     border-radius: 5px;
     user-select: none;
+    max-width: 286px;
   }
 
   .item .close {
