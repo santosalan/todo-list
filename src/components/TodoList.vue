@@ -23,7 +23,7 @@
     <!-- Delete task -->
     <Modal title="Delete Task" :fnClose="closeModalDelete" v-if="modalDeleteShow">
       <div slot="body">
-        Do you want delete the {{ selectedTask.archived ? 'archived' : '' }} task?<br>
+        Do you want to delete the {{ selectedTask.archived ? 'archived' : '' }} task?<br>
         <div class="item" :class="{done: selectedTask.done}">
           <div class="action">{{ selectedTask.action }}</div>
         </div>
