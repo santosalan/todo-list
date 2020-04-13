@@ -46,7 +46,7 @@
     border-left: solid 5px #F006;
     border-radius: 5px;
     user-select: none;
-    max-width: 286px;
+    max-width: 195px;
   }
 
   .item .close {
