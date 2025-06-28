@@ -35,6 +35,20 @@ export default new Vue({
     },
     onDetachItem(fn) {
       this.$on('DETACH_ITEM', fn);
+    },
+
+    editItem(item) {
+      this.$emit('EDIT_ITEM', item);
+    },
+    onEditItem(fn) {
+      this.$on('EDIT_ITEM', fn);
+    },
+
+    updateItem(item, newAction) {
+      this.$emit('UPDATE_ITEM', item, newAction);
+    },
+    onUpdateItem(fn) {
+      this.$on('UPDATE_ITEM', fn);
     }
 
   }

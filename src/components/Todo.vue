@@ -90,6 +90,14 @@
 
         this.items = filteredItems;
       });
+
+      Bus.onUpdateItem((item, newAction) => {
+        this.items.map(i => {
+          if (i.action === item.action) {
+            i.action = newAction;
+          }
+        });
+      });
     },
     mounted() {
       let tasks = JSON.parse(localStorage.getItem("TodoListItems"));
