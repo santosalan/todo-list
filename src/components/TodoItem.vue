@@ -85,11 +85,11 @@
   .item {
     display: inline-block;
     cursor: pointer;
-    background: #F003;
+    background: var(--theme-card-bg);
     margin: 20px;
-    color: #FFF;
-    border: solid 1px #F004;
-    border-left: solid 5px #F006;
+    color: var(--theme-card-color);
+    border: solid 1px var(--theme-card-border);
+    border-left: solid 5px var(--theme-card-border-left);
     border-radius: 5px;
     user-select: none;
     max-width: 195px;
@@ -98,35 +98,35 @@
 
   .item .close {
     cursor: pointer;
-    background: inherit;
+    background: var(--theme-btn-close-bg);
     font-size: 0.7em;
     border: inherit;
     border-radius: 5px 5px 5px 50px;
     float: right;
     padding: 0px 10px;
-    color: #FFF;
+    color: var(--theme-btn-close-color);
   }
 
   .item .archive {
     cursor: pointer;
-    background: inherit;
+    background: var(--theme-btn-archive-bg);
     font-size: 0.7rem;
     border: inherit;
     border-radius: 50px 5px 5px 5px;
     float: right;
     padding: 0px 10px;
-    color: #FFF;
+    color: var(--theme-btn-archive-color);
   }
 
   .edit {
     cursor: pointer;
-    background: inherit;
+    background: var(--theme-btn-edit-bg);
     font-size: 0.7rem;
     border: inherit;
     border-radius: 5px 50px 5px 5px;
     float: left;
     padding: 0px 10px;
-    color: #FFF;
+    color: var(--theme-btn-edit-color);
     border-right-width: 5px;
     border-left-width: 1px;
   }
@@ -137,9 +137,9 @@
   }
 
   .done {
-    background: #0FF3;
-    border: solid 1px #0FF4;
-    border-left: solid 5px #0FF6;
+    background: var(--theme-done-bg);
+    border: solid 1px var(--theme-done-border);
+    border-left: solid 5px var(--theme-done-border-left);
     text-decoration: line-through;
   }
 
@@ -153,9 +153,9 @@
   }
 
   .editing {
-    background: #0CF4 !important;
-    border: solid 1px #0CFD !important;
-    border-left: solid 5px #0CFD !important;
+    background: var(--theme-editing-bg) !important;
+    border: solid 1px var(--theme-editing-border) !important;
+    border-left: solid 5px var(--theme-editing-border-left) !important;
   }
 
   .edit-input {

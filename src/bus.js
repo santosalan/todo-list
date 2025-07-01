@@ -49,6 +49,20 @@ export default new Vue({
     },
     onUpdateItem(fn) {
       this.$on('UPDATE_ITEM', fn);
+    },
+
+    themeChanged(themeName) {
+      this.$emit('THEME_CHANGED', themeName);
+    },
+    onThemeChanged(fn) {
+      this.$on('THEME_CHANGED', fn);
+    },
+
+    requestProgress() {
+      this.$emit('REQUEST_PROGRESS');
+    },
+    onRequestProgress(fn) {
+      this.$on('REQUEST_PROGRESS', fn);
     }
 
   }

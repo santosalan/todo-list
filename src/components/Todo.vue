@@ -12,10 +12,10 @@
   </div>
 </template>
 
-<script>
-  import Bus from '@/bus';
-  import TodoAdd from '@/components/TodoAdd';
-  import TodoList from '@/components/TodoList';
+<script>  import Bus from '@/bus';
+import TodoAdd from '@/components/TodoAdd';
+import TodoList from '@/components/TodoList';
+import { applyTheme, getCurrentTheme, getDynamicBackground } from '@/themes';
 
   export default {
     components: {
@@ -32,10 +32,18 @@
         const base = this.items.filter(i => { return !i.archived });
         const pcnt = Math.round((base.filter(i => { return i.done }).length * 100 / base.length));
 
+        // Obter tema atual e aplicar background dinâmico baseado no progresso
+        const currentTheme = getCurrentTheme();
+        const dynamicBackground = getDynamicBackground(currentTheme, pcnt || 0);
+        
         let el = document.querySelector('body');
-        el.style.background = 'linear-gradient(to right, rgb(00, 50, 00)' + (-100 + pcnt*2) + '%, rgb(58, 0, 0))';
+        el.style.background = dynamicBackground;
 
         return  pcnt ? pcnt + '%' : '';
+      },
+      currentProgress() {
+        const base = this.items.filter(i => { return !i.archived });
+        return Math.round((base.filter(i => { return i.done }).length * 100 / base.length)) || 0;
       }
     },
     watch: {
@@ -98,6 +106,17 @@
           }
         });
       });
+
+      Bus.onThemeChanged((themeName) => {
+        // Quando o tema muda, aplicar o tema com o progresso atual
+        applyTheme(themeName, this.currentProgress);
+      });
+
+      Bus.onRequestProgress(() => {
+        // Retornar progresso atual quando solicitado
+        const currentTheme = getCurrentTheme();
+        applyTheme(currentTheme, this.currentProgress);
+      });
     },
     mounted() {
       let tasks = JSON.parse(localStorage.getItem("TodoListItems"));
@@ -116,13 +135,13 @@
   .progress {
     display: block;
     height: 50px;
-    border: solid 1px #FFFA;
+    border: solid 1px var(--theme-progress-border);
     border-left-width: 5px;
     border-right-width: 5px;
     text-align: center;
     width: 100%;
     border-radius: 50px;
-    background: #FFF2;
+    background: var(--theme-progress-bg);
   }
 
   .progress .value {
@@ -136,7 +155,7 @@
     display: block;
     width: 0%;
     height: 100%;
-    background: green;
+    background: var(--theme-progress-bar);
     border-radius: 50px;
   }
 </style>

@@ -50,8 +50,8 @@
 
 <script>
   import Bus from '@/bus';
-  import TodoItem from '@/components/TodoItem';
-  import Modal from '@/components/Modal';
+import Modal from '@/components/Modal';
+import TodoItem from '@/components/TodoItem';
 
   export default {
     components: {
@@ -124,10 +124,10 @@
 
   .clear {
     float: right;
-    border-color: #F009;
-    background: #F003;
+    border-color: var(--theme-btn-clear-border);
+    background: var(--theme-btn-clear-bg);
     padding: 5px;
-    color: #FFF;
+    color: var(--theme-btn-clear-color);
     cursor: pointer;
   }
 
