@@ -14,6 +14,12 @@
         action: null
       }
     },
+    created() {
+      // Escutar mudanças de tema para atualizar os estilos
+      Bus.onThemeChanged(() => {
+        this.$forceUpdate();
+      });
+    },
     methods: {
       addItem() {
         if (this.action) {
@@ -34,26 +40,32 @@
 
   .addItem input[type=text] {
     width: 100%;
-    border: solid 1px #FFF9;
+    border: solid 1px var(--theme-card-border);
     border-left-width: 5px;
     border-radius: 5px 0 0 5px;
-    background: #3699;
-    color: #FFF;
+    background: var(--theme-card-bg);
+    color: var(--theme-card-color);
     font-size: 1.3em;
     padding: 5px;
   }
 
+  .addItem input[type=text]:focus {
+    outline: none;
+    border-color: var(--theme-card-border-left);
+  }
+
   button {
     width: 10%;
-    background: #369D;
-    border: solid 1px #FFF9;
+    background: var(--theme-btn-edit-bg);
+    border: solid 1px var(--theme-card-border);
     border-right-width: 5px;
     border-radius: 0 5px 5px 0;
     font-size: 2em;
-    color: #FFF;
+    color: var(--theme-btn-edit-color);
+    cursor: pointer;
   }
 
   button:hover {
-    background: #07FC;
+    opacity: 0.8;
   }
 </style>

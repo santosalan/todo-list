@@ -108,6 +108,7 @@ import TodoItem from '@/components/TodoItem';
 <style scoped>
   h3 {
     font-weight: 300;
+    color: var(--theme-text-primary);
   }
 
   .area {
@@ -120,6 +121,7 @@ import TodoItem from '@/components/TodoItem';
     font-size: 1.5em;
     font-weight: 300;
     text-align: center;
+    color: var(--theme-text-secondary);
   }
 
   .clear {
@@ -132,7 +134,7 @@ import TodoItem from '@/components/TodoItem';
   }
 
   .clear:hover {
-    background: #F006;
+    opacity: 0.8;
   }
 
   @keyframes rotate-in {

@@ -21,6 +21,8 @@ export default {
 <style>
   :root {
     --theme-background: linear-gradient(to right, rgb(00, 50, 00) -100%, rgb(58, 0, 0));
+    --theme-text-primary: #FFF;
+    --theme-text-secondary: #CCC;
     --theme-card-bg: #F003;
     --theme-card-border: #F004;
     --theme-card-border-left: #F006;
@@ -48,7 +50,7 @@ export default {
   body {
     font-family: 'Lato', sans-serif;
     background: var(--theme-background);
-    color: #FFF;
+    color: var(--theme-text-primary);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -77,5 +79,6 @@ export default {
     margin-bottom: 5px;
     font-weight: 300;
     font-size: 3rem;
+    color: var(--theme-text-primary);
   }
 </style>

@@ -129,6 +129,8 @@
     color: var(--theme-btn-edit-color);
     border-right-width: 5px;
     border-left-width: 1px;
+    border-left-color: var(--theme-card-border);
+    border-right-color: var(--theme-card-border-left);
   }
 
   .action {
@@ -156,6 +158,15 @@
     background: var(--theme-editing-bg) !important;
     border: solid 1px var(--theme-editing-border) !important;
     border-left: solid 5px var(--theme-editing-border-left) !important;
+  }
+
+  .editing .edit {
+    background: var(--theme-btn-edit-bg);
+    color: var(--theme-btn-edit-color);
+    border-right-width: 5px;
+    border-left-width: 1px;
+    border-left-color: var(--theme-editing-border);
+    border-right-color: var(--theme-editing-border-left);
   }
 
   .edit-input {

@@ -2,6 +2,10 @@ export const themes = {
   'green-red-high': {
     name: 'Green/Red High',
     background: 'linear-gradient(to right, rgb(00, 50, 00) -100%, rgb(58, 0, 0))',
+    text: {
+      primary: '#FFF',
+      secondary: '#CCC'
+    },
     card: {
       background: '#F003',
       border: '#F004',
@@ -20,15 +24,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'inherit',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       edit: {
-        background: 'inherit',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       archive: {
-        background: 'inherit',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       clear: {
@@ -46,6 +50,14 @@ export const themes = {
   'ocean-blue': {
     name: 'Ocean Blue',
     background: 'linear-gradient(135deg, #0f1b2e 0%, #1a2b4a 100%)',
+    text: {
+      primary: '#FFF',
+      secondary: '#CBD5E1'
+    },
+    text: {
+      primary: '#FFF',
+      secondary: '#CBD5E1'
+    },
     card: {
       background: 'rgba(59, 130, 246, 0.2)',
       border: 'rgba(59, 130, 246, 0.3)',
@@ -64,15 +76,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(239, 68, 68, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       edit: {
-        background: 'rgba(16, 185, 129, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       archive: {
-        background: 'rgba(59, 130, 246, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       clear: {
@@ -90,6 +102,10 @@ export const themes = {
   'sunset-orange': {
     name: 'Sunset Orange',
     background: 'linear-gradient(135deg, #2d1810 0%, #4a2c1a 100%)',
+    text: {
+      primary: '#FFF',  
+      secondary: '#FED7AA'
+    },
     card: {
       background: 'rgba(255, 126, 95, 0.2)',
       border: 'rgba(255, 126, 95, 0.3)',
@@ -108,15 +124,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(239, 68, 68, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       edit: {
-        background: 'rgba(16, 185, 129, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       archive: {
-        background: 'rgba(59, 130, 246, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       clear: {
@@ -134,6 +150,10 @@ export const themes = {
   'purple-dark': {
     name: 'Purple Dark',
     background: 'linear-gradient(135deg, #1a1625 0%, #2d2438 100%)',
+    text: {
+      primary: '#FFF',
+      secondary: '#DDD6FE'
+    },
     card: {
       background: 'rgba(118, 75, 162, 0.2)',
       border: 'rgba(118, 75, 162, 0.3)',
@@ -152,15 +172,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(239, 68, 68, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       edit: {
-        background: 'rgba(16, 185, 129, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       archive: {
-        background: 'rgba(59, 130, 246, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       clear: {
@@ -178,6 +198,10 @@ export const themes = {
   'dark-modern': {
     name: 'Dark Modern',
     background: 'linear-gradient(135deg, #1e1e1e 0%, #2d2d30 100%)',
+    text: {
+      primary: '#CCCCCC',
+      secondary: '#999999'
+    },
     card: {
       background: 'rgba(45, 45, 48, 0.9)',
       border: 'rgba(75, 75, 75, 0.5)',
@@ -196,15 +220,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(244, 67, 54, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       edit: {
-        background: 'rgba(0, 122, 204, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       archive: {
-        background: 'rgba(156, 39, 176, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#FFF'
       },
       clear: {
@@ -222,6 +246,10 @@ export const themes = {
   'monokai': {
     name: 'Monokai',
     background: 'linear-gradient(135deg, #272822 0%, #3e3d32 100%)',
+    text: {
+      primary: '#F8F8F2',
+      secondary: '#A8A384'
+    },
     card: {
       background: 'rgba(62, 61, 50, 0.9)',
       border: 'rgba(117, 113, 94, 0.5)',
@@ -240,15 +268,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(249, 38, 114, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#F8F8F2'
       },
       edit: {
-        background: 'rgba(102, 217, 239, 0.8)',
-        color: '#272822'
+        background: 'rgba(0, 0, 0, 0.28)',
+        color: '#F8F8F2'
       },
       archive: {
-        background: 'rgba(174, 129, 255, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#F8F8F2'
       },
       clear: {
@@ -266,6 +294,10 @@ export const themes = {
   'dracula': {
     name: 'Dracula',
     background: 'linear-gradient(135deg, #282a36 0%, #44475a 100%)',
+    text: {
+      primary: '#f8f8f2',
+      secondary: '#bfbfbf'
+    },
     card: {
       background: 'rgba(68, 71, 90, 0.9)',
       border: 'rgba(98, 114, 164, 0.5)',
@@ -284,15 +316,15 @@ export const themes = {
     },
     buttons: {
       close: {
-        background: 'rgba(255, 85, 85, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#f8f8f2'
       },
       edit: {
-        background: 'rgba(139, 233, 253, 0.8)',
-        color: '#282a36'
+        background: 'rgba(0, 0, 0, 0.28)',
+        color: '#f8f8f2'
       },
       archive: {
-        background: 'rgba(189, 147, 249, 0.8)',
+        background: 'rgba(0, 0, 0, 0.28)',
         color: '#f8f8f2'
       },
       clear: {
@@ -317,6 +349,9 @@ export const applyTheme = (themeName, progressPercent = 0) => {
   
   // Aplicar variáveis CSS
   root.style.setProperty('--theme-background', theme.background);
+  root.style.setProperty('--theme-text-primary', theme.text && theme.text.primary ? theme.text.primary : '#FFF');
+  root.style.setProperty('--theme-text-secondary', theme.text && theme.text.secondary ? theme.text.secondary : '#CCC');
+  
   root.style.setProperty('--theme-card-bg', theme.card.background);
   root.style.setProperty('--theme-card-border', theme.card.border);
   root.style.setProperty('--theme-card-border-left', theme.card.borderLeft);
