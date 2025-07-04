@@ -63,7 +63,13 @@ export default new Vue({
     },
     onRequestProgress(fn) {
       this.$on('REQUEST_PROGRESS', fn);
-    }
+    },
 
+    changeView(viewMode) {
+      this.$emit('CHANGE_VIEW', viewMode);
+    },
+    onChangeView(fn) {
+      this.$on('CHANGE_VIEW', fn);
+    }
   }
 });

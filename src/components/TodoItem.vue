@@ -9,6 +9,7 @@
       v-model="editedAction" 
       @click.stop
       @keypress.enter.prevent="saveItem"
+      @keyup.esc="cancelEdit"
       @input="autoResize"
       ref="editTextarea"
       rows="1"
@@ -142,7 +143,16 @@
     background: var(--theme-done-bg);
     border: solid 1px var(--theme-done-border);
     border-left: solid 5px var(--theme-done-border-left);
+  }
+
+  .done .action {
     text-decoration: line-through;
+  }
+
+  .done .edit,
+  .done .archive,
+  .done .close {
+    text-decoration: none;
   }
 
   .archived {
@@ -178,9 +188,5 @@
     font-size: inherit;
     width: calc(100% - 40px);
     outline: none;
-  }
-
-  .item.done .close {
-    text-decoration: none;
   }
 </style>

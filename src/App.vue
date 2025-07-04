@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <ViewSelector />
     <ThemeSelector />
     <h1>Tasks</h1>
     <ToDo></ToDo>
@@ -9,11 +10,13 @@
 <script>
 import ThemeSelector from '@/components/ThemeSelector';
 import ToDo from '@/components/Todo';
+import ViewSelector from '@/components/ViewSelector';
 
 export default {
   components: {
     ToDo,
-    ThemeSelector
+    ThemeSelector,
+    ViewSelector
   }
 }
 </script>

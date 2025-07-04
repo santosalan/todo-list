@@ -1,8 +1,21 @@
 <template>
   <div class="list">
-    <div class="area">
+    <div class="area" :class="{'list-view': viewMode === 'list', 'card-view': viewMode === 'cards'}">
       <transition-group name="fade-rotate" mode="out-in">
-        <TodoItem v-for="item in tasks" :key="item.action" :item="item" :fnDelete="showDeleteModal"/>
+        <TodoItem 
+          v-if="viewMode === 'cards'"
+          v-for="item in tasks" 
+          :key="item.action" 
+          :item="item" 
+          :fnDelete="showDeleteModal"
+        />
+        <TodoItemList 
+          v-if="viewMode === 'list'"
+          v-for="item in tasks" 
+          :key="item.action" 
+          :item="item" 
+          :fnDelete="showDeleteModal"
+        />
         <div class="no-tasks" key="notasks" v-if="!tasks.length">
           No tasks to do.
         </div>
@@ -14,9 +27,22 @@
       Archive
       <button class="btn clear" @click="clear">Clear archive</button>
     </h3>
-    <div class="area">
+    <div class="area" :class="{'list-view': viewMode === 'list', 'card-view': viewMode === 'cards'}">
       <transition-group name="fade-rotate" mode="out-in">
-        <TodoItem v-for="item in archiveds" :key="item.action" :item="item" :fnDelete="showDeleteModal"/>
+        <TodoItem 
+          v-if="viewMode === 'cards'"
+          v-for="item in archiveds" 
+          :key="item.action" 
+          :item="item" 
+          :fnDelete="showDeleteModal"
+        />
+        <TodoItemList 
+          v-if="viewMode === 'list'"
+          v-for="item in archiveds" 
+          :key="item.action" 
+          :item="item" 
+          :fnDelete="showDeleteModal"
+        />
       </transition-group>
     </div>
 
@@ -52,10 +78,12 @@
   import Bus from '@/bus';
 import Modal from '@/components/Modal';
 import TodoItem from '@/components/TodoItem';
+import TodoItemList from '@/components/TodoItemList';
 
   export default {
     components: {
       TodoItem,
+      TodoItemList,
       Modal,
     },
     props: {
@@ -66,7 +94,17 @@ import TodoItem from '@/components/TodoItem';
         selectedTask: null,
         modalDeleteShow: false,
         modalClearShow: false,
+        viewMode: 'cards'
       }
+    },
+    created() {
+      // Escutar mudanças no modo de visualização
+      Bus.onChangeView((mode) => {
+        this.viewMode = mode;
+      });
+      
+      // Carregar o modo de visualização salvo
+      this.viewMode = localStorage.getItem('viewMode') || 'cards';
     },
     computed: {
       tasks() {
@@ -114,6 +152,17 @@ import TodoItem from '@/components/TodoItem';
   .area {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .area.card-view {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .area.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .no-tasks {
